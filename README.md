@@ -63,6 +63,7 @@ module "cloudflare_tunnel" {
     project     = "internal-tools"
   }
 }
+```
 
 ## Inputs
 
