@@ -64,13 +64,16 @@ module "cloudflare_tunnel" {
   }
 }
 
-Name,Description,Type,Default,Required
-tunnel_name,Human-readable name of the tunnel,string,n/a,yes
-account_id,Cloudflare Account ID,string,n/a,yes
-zone_id,Zone ID for DNS record creation,string,n/a,yes
-tunnel_target,Target service configuration (service + url),map(string),n/a,yes
-public_hostname,Public hostname settings (subdomain + domain),map(string),n/a,yes
-create_verification_txt,Whether to create TXT verification record,bool,false,no
-create_access_app,Create basic Zero Trust Access Application,bool,false,no
-access_policies,List of simple Access policies,list(any),[],no
-tags,Map of tags to apply to created resources,map(string),{},no
+## Inputs
+
+| Name                        | Description                                                                 | Type          | Default       | Required |
+|-----------------------------|-----------------------------------------------------------------------------|---------------|---------------|:--------:|
+| account_id                  | Cloudflare Account ID (UUID)                                                | `string`      | n/a           | yes      |
+| tunnel_name                 | Friendly name for the Cloudflare Tunnel                                     | `string`      | n/a           | yes      |
+| zone_id                     | Cloudflare Zone ID where DNS records will be created                        | `string`      | n/a           | yes      |
+| tunnel_target               | Target service configuration (must contain 'service' and 'url' keys)       | `map(string)` | n/a           | yes      |
+| public_hostname             | Public hostname configuration (must contain 'subdomain' and 'domain')      | `map(string)` | n/a           | yes      |
+| create_verification_txt     | Whether to create a TXT record for tunnel ownership verification           | `bool`        | `false`       | no       |
+| create_access_app           | Whether to create a basic Zero Trust Access application                    | `bool`        | `false`       | no       |
+| access_policies             | List of maps defining simple Access policies (name, action, emails, etc.)  | `list(any)`   | `[]`          | no       |
+| tags                        | Map of tags to apply to all created resources                               | `map(string)` | `{}`          | no       |
