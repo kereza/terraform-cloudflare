@@ -5,11 +5,11 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Release](https://img.shields.io/github/v/release/kereza/terraform-cloudflare?color=green)](https://github.com/kereza/terraform-cloudflare/releases)
 
-Simple and opinionated Terraform module to quickly set up:
+Simple Terraform module to quickly set up:
 
 - Cloudflare Tunnel (cloudflared)
 - Public Hostname routing
-- DNS records (CNAME + optional TXT verification)
+- DNS records
 - Optional basic Zero Trust Access application + policy
 
 ## Features
@@ -17,7 +17,6 @@ Simple and opinionated Terraform module to quickly set up:
 - Creates a named Cloudflare Tunnel
 - Configures public hostname(s) with service routing
 - Automatically creates corresponding CNAME DNS record
-- Optional TXT record for tunnel verification
 - Optional creation of basic Zero Trust Access Application with simple policies
 
 ## Requirements
