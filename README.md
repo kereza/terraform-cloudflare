@@ -30,39 +30,25 @@ Simple and opinionated Terraform module to quickly set up:
 ## Usage
 
 ```hcl
-module "cloudflare_tunnel" {
+module "cloudflare" {
   source = "github.com/kereza/terraform-cloudflare"
 
-  tunnel_name        = "my-homelab-tunnel"
-  account_id         = "your-cloudflare-account-id"
-  zone_id            = "your-zone-id"
+  account_id  = "cloudflare_account_id"
+  team_name   = "team_name"
+  tunnel_name = "Home"
 
-  tunnel_target = {
-    service = "http"
-    url     = "http://192.168.1.100:8080"   # or localhost, internal IP, etc.
+  routes = {
+    "home" = "192.168.0.0/24"
   }
+  allowed_emails = ["example@gmail.com"]
 
-  public_hostname = {
-    subdomain = "app"
-    domain    = "example.com"
-  }
-
-  create_verification_txt = true
-
-  create_access_app = true
-  access_policies = [
-    {
-      name     = "Allow team members"
-      action   = "allow"
-      emails   = ["*@yourcompany.com"]
-    }
-  ]
-
-  tags = {
-    environment = "production"
-    project     = "internal-tools"
+  main_domain = "example.com"
+  public_apps = {
+    "example.com"         = "http://192.168.0.163:3600"
+    "grafana.example.com" = "http://192.168.0.163:3000"
   }
 }
+
 ```
 
 ## Inputs
