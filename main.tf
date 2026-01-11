@@ -105,9 +105,9 @@ resource "cloudflare_zero_trust_access_application" "access_app" {
 }
 
 resource "cloudflare_zero_trust_access_application" "ssh" {
-  account_id = var.account_id
-  type       = "ssh"
-  name       = "SSH"
+  account_id                = var.account_id
+  type                      = "ssh"
+  name                      = "SSH"
   allowed_idps              = [cloudflare_zero_trust_access_identity_provider.identity_provider.id]
   auto_redirect_to_identity = true
   policies = [
