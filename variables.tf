@@ -1,5 +1,5 @@
 variable "account_id" {
-  description = "value"
+  description = "The ID of the CloudFlare Account"
   type        = string
 }
 
@@ -14,7 +14,7 @@ variable "team_name" {
 }
 
 variable "routes" {
-  description = "value"
+  description = "The CIDR ranges which should be included in the tunnel routing"
   type        = map(string)
 }
 
