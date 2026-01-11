@@ -105,7 +105,6 @@ resource "cloudflare_zero_trust_access_application" "access_app" {
 }
 
 resource "cloudflare_zero_trust_access_application" "ssh" {
-    count = var.ssh ? 1 : 0
   account_id = var.account_id
   type       = "ssh"
   name       = "SSH"

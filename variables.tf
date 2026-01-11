@@ -68,9 +68,3 @@ variable "public_apps" {
   type        = map(string)
   default     = {}
 }
-
-variable "ssh" {
-  description = "Connect to SSH with client-side cloudflared"
-  type = bool
-  default = false
-}

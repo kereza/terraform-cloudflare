@@ -34,13 +34,3 @@ resource "cloudflare_dns_record" "this" {
   content  = "${cloudflare_zero_trust_tunnel_cloudflared.tunnel.id}.cfargotunnel.com"
   proxied  = true
 }
-
-resource "cloudflare_dns_record" "shh" {
-  count = var.ssh ? 1 : 0
-  zone_id  = data.cloudflare_zone.zone[0].id
-  name     = "ssh.${var.main_domain}"
-  ttl      = 1
-  type     = "CNAME"
-  content  = "${cloudflare_zero_trust_tunnel_cloudflared.tunnel.id}.cfargotunnel.com"
-  proxied  = true
-}

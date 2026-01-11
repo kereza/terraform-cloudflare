@@ -62,7 +62,6 @@ module "cloudflare" {
 | <a name="input_main_domain"></a> [main\_domain](#input\_main\_domain) | The main domain registered with CloudFlare | `string` | `""` | no |
 | <a name="input_public_apps"></a> [public\_apps](#input\_public\_apps) | The domains which will be publicly exposed and the private network address of the apps | `map(string)` | `{}` | no |
 | <a name="input_routes"></a> [routes](#input\_routes) | value | `map(string)` | n/a | yes |
-| <a name="input_ssh"></a> [ssh](#input\_ssh) | Connect to SSH with client-side cloudflared | `bool` | `false` | no |
 | <a name="input_team_name"></a> [team\_name](#input\_team\_name) | Cloud Flare Zero Trust team name. Can not be created automatically. Need to add payment method | `string` | n/a | yes |
 | <a name="input_tunnel_name"></a> [tunnel\_name](#input\_tunnel\_name) | The name of the tunnel | `string` | n/a | yes |
 
