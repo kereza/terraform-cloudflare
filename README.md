@@ -66,14 +66,22 @@ module "cloudflare_tunnel" {
 
 ## Inputs
 
-| Name                        | Description                                                                 | Type          | Default       | Required |
-|-----------------------------|-----------------------------------------------------------------------------|---------------|---------------|:--------:|
-| account_id                  | Cloudflare Account ID (UUID)                                                | `string`      | n/a           | yes      |
-| tunnel_name                 | Friendly name for the Cloudflare Tunnel                                     | `string`      | n/a           | yes      |
-| zone_id                     | Cloudflare Zone ID where DNS records will be created                        | `string`      | n/a           | yes      |
-| tunnel_target               | Target service configuration (must contain 'service' and 'url' keys)       | `map(string)` | n/a           | yes      |
-| public_hostname             | Public hostname configuration (must contain 'subdomain' and 'domain')      | `map(string)` | n/a           | yes      |
-| create_verification_txt     | Whether to create a TXT record for tunnel ownership verification           | `bool`        | `false`       | no       |
-| create_access_app           | Whether to create a basic Zero Trust Access application                    | `bool`        | `false`       | no       |
-| access_policies             | List of maps defining simple Access policies (name, action, emails, etc.)  | `list(any)`   | `[]`          | no       |
-| tags                        | Map of tags to apply to all created resources                               | `map(string)` | `{}`          | no       |
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_account_id"></a> [account\_id](#input\_account\_id) | value | `string` | n/a | yes |
+| <a name="input_allowed_emails"></a> [allowed\_emails](#input\_allowed\_emails) | A list of emails to define who can join their device to WARP | `list(string)` | n/a | yes |
+| <a name="input_custom_addresses"></a> [custom\_addresses](#input\_custom\_addresses) | Additional network addresses to be included in Cloudflare Zero Trust domains<br/>  [<br/>  {<br/>    address = "10.10.10.1/24"<br/>    description = "test"<br/>  }<br/>  ] | `list(map(string))` | `[]` | no |
+| <a name="input_custom_hosts"></a> [custom\_hosts](#input\_custom\_hosts) | Additional domains to be included in Cloudflare Zero Trust domains<br/>  [<br/>  {<br/>    host = "test.com"<br/>    description = "test"<br/>  }<br/>  ] | `list(map(string))` | `[]` | no |
+| <a name="input_identity_provider"></a> [identity\_provider](#input\_identity\_provider) | The ID provider used. Currently only onetime pin is supported | `string` | `"onetimepin"` | no |
+| <a name="input_main_domain"></a> [main\_domain](#input\_main\_domain) | The main domain registered with CloudFlare | `string` | `""` | no |
+| <a name="input_public_apps"></a> [public\_apps](#input\_public\_apps) | The domains which will be publicly exposed and the private network address of the apps | `map(string)` | `{}` | no |
+| <a name="input_routes"></a> [routes](#input\_routes) | value | `map(string)` | n/a | yes |
+| <a name="input_ssh"></a> [ssh](#input\_ssh) | Connect to SSH with client-side cloudflared | `bool` | `false` | no |
+| <a name="input_team_name"></a> [team\_name](#input\_team\_name) | Cloud Flare Zero Trust team name. Can not be created automatically. Need to add payment method | `string` | n/a | yes |
+| <a name="input_tunnel_name"></a> [tunnel\_name](#input\_tunnel\_name) | The name of the tunnel | `string` | n/a | yes |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_tunnel_token"></a> [tunnel\_token](#output\_tunnel\_token) | n/a |
