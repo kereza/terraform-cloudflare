@@ -1,0 +1,19 @@
+# .terraform-docs.yml
+formatter: "markdown table"
+
+output_file: "README.md"
+output_method: "replace"   # or "inject" / "prepend" etc.
+
+sections:
+  hide: []                 # sections to hide (empty = show all by default)
+  show:                    # only show these sections (optional)
+    - inputs
+    - outputs
+    - requirements
+
+# Optional: hide everything except what you explicitly show
+# sections:
+#   hide-all: true
+#   show:
+#     - inputs
+#     - outputs
